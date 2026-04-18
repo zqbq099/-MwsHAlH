@@ -1,0 +1,74 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: parts
+    // Document ID: partId
+    // Fields:
+    //   - name: string (required) - اسم القطعة
+    //   - merchantId: string (required) - معرف التاجر
+    //   - model: string (optional) - موديل السيارة
+    //   - carMake: string (optional) - صانع السيارة
+    //   - price: number (optional) - السعر
+    //   - usagePercentage: number (optional) - نسبة الاستخدام
+    //   - quantity: number (optional) - الكمية
+    //   - imageUrl: string (optional) - رابط صورة القطعة
+    //
+    // Collection: merchants
+    // Document ID: merchantId
+    // Fields:
+    //   - name: string (required) - اسم المتجر
+    //   - location: string (optional) - موقع المتجر
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isValidPart(data) {
+      return data.name is string && data.name.size() > 0 && data.name.size() < 100 &&
+             data.merchantId is string && data.merchantId.size() > 0;
+    }
+
+    match /parts/{partId} {
+      allow read: if true; // السماح للجميع برؤية القطع
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated() || (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['whatsappClicks']) && request.resource.data.whatsappClicks == resource.data.whatsappClicks + 1);
+      allow delete: if isAuthenticated();
+    }
+
+    match /merchants/{merchantId} {
+      allow read: if true;
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated();
+      allow delete: if isAuthenticated();
+    }
+
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if isAuthenticated() && request.auth.uid == userId;
+    }
+
+    match /favorites/{favoriteId} {
+      allow read: if isAuthenticated() && request.auth.uid == resource.data.userId;
+      allow create: if isAuthenticated() && request.auth.uid == request.resource.data.userId;
+      allow delete: if isAuthenticated() && request.auth.uid == resource.data.userId;
+    }
+
+    match /part_requests/{requestId} {
+      allow read: if true;
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated();
+      allow delete: if isAuthenticated() && request.auth.uid == resource.data.customerId;
+    }
+  }
+}

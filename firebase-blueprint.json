@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "Part": {
+      "title": "Part",
+      "description": "قطعة غيار سيارة",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "اسم القطعة" },
+        "model": { "type": "string", "description": "موديل السيارة" },
+        "carMake": { "type": "string", "description": "صانع السيارة" },
+        "price": { "type": "number", "description": "السعر" },
+        "usagePercentage": { "type": "number", "description": "نسبة الاستخدام" },
+        "quantity": { "type": "number", "description": "الكمية" },
+        "merchantId": { "type": "string", "description": "معرف التاجر" },
+        "imageUrl": { "type": "string", "description": "رابط صورة القطعة" }
+      },
+      "required": ["name", "merchantId"]
+    },
+    "Merchant": {
+      "title": "Merchant",
+      "description": "تاجر تشليح",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "اسم المتجر" },
+        "location": { "type": "string", "description": "موقع المتجر" }
+      },
+      "required": ["name"]
+    }
+  },
+  "firestore": {
+    "/parts/{partId}": {
+      "schema": { "$ref": "Part" },
+      "description": "مخزون قطع الغيار"
+    },
+    "/merchants/{merchantId}": {
+      "schema": { "$ref": "Merchant" },
+      "description": "متاجر التجار"
+    }
+  }
+}
