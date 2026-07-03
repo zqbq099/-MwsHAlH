@@ -1,71 +1,81 @@
-# سوق التشليح الذكي (Smart Scrapyard Market) 🚗🤖
+# Smart Scrapyard - سوق التشليح الذكي 🚗🚙
 
-منصة مبتكرة تربط الباحثين عن قطع غيار السيارات بمتاجر التشليح (الخردة) في المملكة العربية السعودية بكل سهولة، باستخدام أحدث تقنيات الذكاء الاصطناعي لتسهيل التجارة البينية وضمان موثوقية العمليات.
-
-## 🎯 رؤية المشروع
-يواجه العديد من ملاك السيارات صعوبات إما في معرفة اسم القطعة التالفة أو البحث عنها بين مئات التشاليح، مما يكلفهم وقتاً وجهداً وأموالاً طائلة. **سوق التشليح الذكي** يهدف لتحويل هذا السوق التقليدي غير المنظم إلى تجربة رقمية ذكية بالكامل، تخدم كلاً من:
-*   **المهندسين / الزبائن:** من خلال البحث المبسط والتسوق الآمن.
-*   **تجار التشليح:** من خلال إدارة مخزون سريعة ووصول أكبر للعملاء.
-
-## 🌟 الميزات الرئيسية للمنصة
-
-### 🤖 ميزات الذكاء الاصطناعي (AI Powered)
-1.  **التعرف الذكي على القطع (AI Vision):** فقط قم بتصوير القطعة، وسيتعرف الذكاء الاصطناعي على اسمها، رقمها، والسيارات المتوافقة معها، وحتى يقترح سعراً عادلاً لها حسب حالة السوق.
-2.  **المشخص الذكي للأعطال (AI Mechanic):** صِف المشكلة التي تواجهها سيارتك (مثل: "السيارة ترجف عند الفرملة..")، وسيقوم النظام بتشخيص العطل واقتراح أرقام القطع المحتمل تلفها للبحث عنها بضغطة زر.
-3.  **تسعير وتصنيف تلقائي:** للتجار، النظام يحلل الصور ويرتب المخزون تلقائياً، دون الحاجة لإدخال بيانات يدوية مقعدة.
-
-### 🛡️ أمان وثقة المشتري
-1.  **نظام الدفع عبر الضمان (Escrow System):** يمكنك شراء القطعة والدفع بالبطاقة، ويظل المبلغ محفوظاً لدى المنصة ولن يتم تحويله للتاجر إلا بعد استلام القطعة والتأكد من مطابقتها وفحصها.
-2.  **نظام تقييم التجار:** تقييمات شفافة تعتمد على جودة القطع وسرعة التوصيل وخدمة العملاء.
-3.  **متاجر موثوقة:** شارات تميز التجار الموثوقين وتوفر للمشترين معلومات تواصل شفافة (مثل الواتساب والمدينة).
-
-### 🏪 أدوات للتاجر المبتكر
-1.  **إدارة مخزون بضغطة زر:** أضف القطع لمخزونك في ثوانٍ باستخدام كاميرا الهاتف فقط.
-2.  **تتبع وتحليل الطلب:** تتبع نقرات المشترين المهتمين بمعرفة تفاصيل قطعتك أو الضغط على رابط "الواتساب".
-3.  **رادار السوق:** تتبع الطلبات الخاصة من المشترين للقطع النادرة، وقدم عروضك وتوصياتك بشكل مباشر.
-
-## 📊 القدرة الاستيعابية التقنية الحالية (الحالة الراهنة)
-تم بناء المشروع على بنية تحتية Serverless تعتمد على **Google Firebase** كمزود رئيسي للخدمات السحابية:
-
-*   **Firebase Authentication:** يدعم تسجيل الدخول الموثوق عبر حسابات جوجل لعدد غير محدود (عملياً) من المستخدمين مع معدقات أمان عالية.
-*   **Firestore (NoSQL Database):** 
-    *   **القوة الاستيعابية:** قادرة على التعامل مع **أكثر من مليون اتصال متزامن** ونقل ما يقارب 10,000 عملية كتابة في الثانية الواحدة. 
-    *   **التخزين:** يتسع لتخزين بيانات ومخزون لعشرات الآلاف من التشاليح وتاريخ مشتريات الزبائن بسهولة وسرعة فائقة بفضل التقسيم التلقائي (Sharding).
-*   **التوسعية (Scalability):** بفضل الاعتماد على السحابة، فإن المنصة تتمدد تلقائياً (Auto-scaling) لاستيعاب أي زيادة مفاجئة في عدد المستخدمين، سواء كان 10 أو 100,000 مستخدم في نفس اللحظة بدون انهيار النظام.
-*   **الذكاء الاصطناعي:** مدمج باستخدام `gemini-3.1-pro` مع واجهة برمجة التطبيقات الرسمية للتعامل مع تحليل الصور والنصوص بسرعة استجابة عالية.
-
-## 📱 تحويل المشروع لتطبيق أندرويد (توجيهات لنسخة APK)
-
-لتحويل تطبيق الويب التفاعلي هذا الخاص بك إلى تطبيق Native للأندرويد، أنصح باستخدام **Capacitor** من Ionic كونه يحول مشاريع React و Vite إلى تطبيقات موبايل بكل سلاسة.
-
-**لتنفيذ التحويل، وجه لمترجم الذكاء الاصطناعي (AI Prompt) الخاص بك أو لنفسك عبر الطرفية (Terminal) الأوامر التالية:**
-
-```bash
-# 1. تثبيت حزم Capacitor الأساسية في المشروع
-npm install @capacitor/core @capacitor/android
-npm install -D @capacitor/cli
-
-# 2. تهيئة مشروع Capacitor (قم بإدخال اسم التطبيق ورقم الحزمة عند الطلب)
-npx cap init "Smart Scrapyard" "com.smartscrapyard.app" --web-dir dist
-
-# 3. بناء واجهة الويب (يجب تشغيله أولاً لإنشاء مجلد dist)
-npm run build
-
-# 4. إضافة منصة الأندرويد للمشروع
-npx cap add android
-
-# 5. مزامنة ملفات الويب المفهرسة والمبنية مع منصة الأندرويد
-npx cap sync android
-
-# 6. فتح المشروع على Android Studio لبناء ملف الـ APK النهائي أو AAB
-npx cap open android
-```
-
-### 💡 اقتراحات وإضافات لإصدار "الإصدار الثالث (V3)" المستقبلي:
-*   **الإشعارات الفورية (Push Notifications):** إرسال إشعارات عندما يتوفر عرض لطلب الزبون، أو عند وصول طلب جديد للتاجر.
-*   **الخرائط والتتبع المتكامل:** تتبع مندوب التوصيل على الخريطة لحظة بلحظة بعد الدفع بنظام الـ Escrow، وعرض موقع التشليح على خريطة تفاعلية للزبون لو أراد الاستلام اليدوي.
-*   **نظام مزايدة:** للمركبات التشليح الكاملة (بيع سيارة كاملة للتشاليح ككتلة واحدة عبر مزاد إلكتروني).
-*   **الدردشة الحية الداخلية:** بديل للواتساب للحفاظ على خصوصية الزبون وربط محادثاتهم مع عملية البيع كمرجع.
+[English](#english) | [العربية](#arabic)
 
 ---
-**تم تطوير المشروع بعناية فائقة لدعم رؤية المملكة في التحول الرقمي للقطاعات التجارية، وتطوير أسواق قطع الغيار.**
+
+<a name="english"></a>
+## 🇬🇧 English
+
+### Overview
+**Smart Scrapyard** is an innovative platform designed to bridge the gap between car spare parts buyers, merchants, and brokers in the Kingdom of Saudi Arabia (and beyond). By leveraging cutting-edge Artificial Intelligence (Google Gemini API), the application simplifies the process of identifying, pricing, and selling used or new car parts.
+
+### Key Features
+*   **Role-Based Access Control:** Dedicated interfaces for **Customers** (buyers), **Merchants** (scrapyard owners), and **Brokers** (intermediaries).
+*   **AI-Powered Part Identification:** Upload an image of a car part, and the AI will automatically identify the part name, compatible car models, maker, and suggest a market price.
+*   **Bulk Image Upload:** Merchants can upload up to 10 images at once to quickly add multiple parts to their inventory.
+*   **Manual & Automated Listings:** Flexibility to add parts manually or via AI analysis.
+*   **Direct WhatsApp Communication:** Customers can contact merchants or brokers directly via WhatsApp with a pre-filled inquiry message.
+*   **Dual Contact System for Brokers:** Brokers can list parts and provide both their contact number and the original owner's contact number for faster communication.
+*   **Comparison Tool:** Users can compare multiple parts side-by-side (price, condition, location, etc.).
+*   **Shopping Cart & Checkout:** Seamless experience for users to purchase and request secure delivery.
+*   **Firebase Integration:** Real-time database (Firestore) and secure Authentication.
+
+### Tech Stack
+*   **Frontend:** React (Vite), TypeScript, Tailwind CSS, Lucide Icons.
+*   **Backend / BaaS:** Firebase (Authentication, Firestore Database).
+*   **AI Integration:** Google Gemini 3 Flash API.
+
+### Installation & Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/smart-scrapyard.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up environment variables (Firebase config & Gemini API Key).
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+---
+
+<a name="arabic"></a>
+## 🇸🇦 العربية
+
+### نظرة عامة
+**سوق التشليح الذكي** هو منصة مبتكرة مصممة لربط الباحثين عن قطع غيار السيارات بمتاجر التشليح والوسطاء بكل سهولة وموثوقية. من خلال الاستفادة من أحدث تقنيات الذكاء الاصطناعي (Google Gemini)، يبسط التطبيق عملية التعرف على قطع الغيار المستعملة أو الجديدة وتسعيرها وعرضها للبيع.
+
+### المميزات الرئيسية
+*   **نظام صلاحيات متعدد:** واجهات مخصصة لكل من **الزبائن** (المشترين)، **التجار** (أصحاب التشاليح)، و **الوسطاء** (الدلالين).
+*   **التعرف على القطع بالذكاء الاصطناعي:** بمجرد رفع صورة لقطعة الغيار، يقوم الذكاء الاصطناعي بتحليلها واستخراج اسم القطعة، موديلات السيارات المتوافقة، الشركة المصنعة، واقتراح سعر عادل بناءً على حالة السوق.
+*   **الرفع الجماعي للصور:** يمكن للتجار رفع حتى 10 صور دفعة واحدة لإضافة مجموعة من القطع للمخزون بسرعة.
+*   **إضافة يدوية أو آلية:** مرونة في إضافة إعلانات القطع إما يدوياً بالكامل أو بالاستعانة بالذكاء الاصطناعي.
+*   **تواصل مباشر عبر الواتساب:** يمكن للزبائن التواصل مع التجار أو الوسطاء مباشرة عبر الواتساب مع رسالة استفسار جاهزة تحتوي على تفاصيل القطعة.
+*   **نظام الاتصال المزدوج للوسطاء:** يمكن للوسيط عرض القطع وتوفير رقم التواصل الخاص به بالإضافة إلى رقم المالك الأصلي لتسهيل وتسريع عملية البيع.
+*   **أداة المقارنة:** أداة تتيح للمستخدمين مقارنة عدة قطع جنباً إلى جنب (السعر، الحالة، المدينة، وغيرها).
+*   **سلة المشتريات والدفع:** تجربة سلسة تتيح للمستخدمين الشراء وطلب التوصيل الآمن.
+*   **قواعد بيانات لحظية:** تكامل كامل مع Firebase لإدارة المصادقة وقواعد البيانات (Firestore) بشكل آمن ولحظي.
+
+### التقنيات المستخدمة
+*   **واجهة المستخدم (Frontend):** React (Vite), TypeScript, Tailwind CSS.
+*   **الخلفية وقواعد البيانات (Backend):** Firebase (Auth, Firestore).
+*   **الذكاء الاصطناعي (AI):** Google Gemini 3 Flash API.
+
+### التثبيت والتشغيل
+1. استنساخ المستودع (Clone):
+   ```bash
+   git clone https://github.com/yourusername/smart-scrapyard.git
+   ```
+2. تثبيت الحزم المطلوبة:
+   ```bash
+   npm install
+   ```
+3. إعداد متغيرات البيئة (إعدادات Firebase ومفتاح API الخاص بـ Gemini).
+4. تشغيل خادم التطوير:
+   ```bash
+   npm run dev
+   ```
